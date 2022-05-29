@@ -1,6 +1,6 @@
 {
   "name": "textlint-rule-no-exists-file",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "リンクの相対パスと Current Root 指定のパスの存在を検出する",
   "keywords": [
     "textlintrule"
