@@ -28,7 +28,7 @@ services:
       - ./:/app
       - node_modules_volume:/app/node_modules
       # マウント先を指定する
-      - $HOME/projects/visasq/etc/app-docs:/projects/etc/app-docs
+      - $HOME/path/to/path:/docker/path/to/path
 ```
 
 ## コンテナにログイン
@@ -48,7 +48,7 @@ npm run build
 
 
 ```bash
-cd /projects/etc/app-docs
+cd /docker/path/to/path
 ```
 
 下記コマンドでルールをテストします
