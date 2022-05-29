@@ -1,0 +1,19 @@
+version: "3"
+services:
+  app:
+    privileged: true
+    container_name: "textlint-rule-no-exists-file"
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    volumes:
+      - ./:/app
+      - $HOME/projects/visasq/etc/app-docs:/projects/etc/app-docs
+      - node_modules_volume:/app/node_modules
+    command: /bin/bash
+    tty: true
+    stdin_open: true
+    environment:
+      CONTAINER_NAME: textlint-rule-no-exists-file
+volumes:
+  node_modules_volume:

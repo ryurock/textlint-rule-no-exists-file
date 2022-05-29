@@ -1,0 +1,27 @@
+{
+  "version": "0.1.0",
+  "keywords": [
+    "textlintrule"
+  ],
+  "description": "リンクの相対パスと Current Root 指定のパスの存在を検出する",
+  "main": "lib/index.js",
+  "files": [
+    "lib/",
+    "src/"
+  ],
+  "name": "textlint-rule-no-exists-file",
+  "scripts": {
+    "test": "textlint-scripts test",
+    "build": "textlint-scripts build",
+    "prepublish": "npm run --if-present build",
+    "watch": "textlint-scripts build --watch"
+  },
+  "devDependencies": {
+    "@textlint/types": "^12.1.1",
+    "@types/node": "^15.6.0",
+    "textlint-scripts": "^12.1.1",
+    "textlint-tester": "^12.1.1",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.2.4"
+  }
+}
