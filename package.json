@@ -1,21 +1,31 @@
 {
+  "name": "textlint-rule-no-exists-file",
   "version": "0.1.0",
+  "description": "リンクの相対パスと Current Root 指定のパスの存在を検出する",
   "keywords": [
     "textlintrule"
   ],
-  "description": "リンクの相対パスと Current Root 指定のパスの存在を検出する",
   "main": "lib/index.js",
   "files": [
     "lib/",
     "src/"
   ],
-  "name": "textlint-rule-no-exists-file",
   "scripts": {
     "test": "textlint-scripts test",
     "build": "textlint-scripts build",
     "prepublish": "npm run --if-present build",
     "watch": "textlint-scripts build --watch"
   },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ryurock/textlint-rule-no-exists-file.git"
+  },
+  "author": "ryurock <ryusukekimura3@gmail.com> (https://github.com/ryurock)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ryurock/textlint-rule-no-exists-file/issues"
+  },
+  "homepage": "https://github.com/ryurock/textlint-rule-no-exists-file#readme",
   "devDependencies": {
     "@textlint/types": "^12.1.1",
     "@types/node": "^15.6.0",
