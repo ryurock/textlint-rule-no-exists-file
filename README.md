@@ -60,6 +60,21 @@ cd /docker/path/to/path
 npx textlint --rulesdir /app/lib/ docs/
 ```
 
+## 注意事項
+
+テスト対象のディレクトリの `.textlintrc` で `"textlint-rule-no-exists-file": true` を入れていると修正が反映されないのでご注意ください。
+
+```
+{
+  "filters": {},
+  "rules": {
+    # false を指定すること
+    "textlint-rule-no-exists-file": false
+  }
+}
+
+```
+
 # Build
 
 `lib` 以下にコードが作成されます。

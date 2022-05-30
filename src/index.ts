@@ -29,8 +29,9 @@ const report: TextlintRuleModule<Options> = (context: TextlintRuleContext, optio
             // 相対パスの場合
             if (node.url.match(/^\.\//g)) {
                 const fileBasePath = path.dirname(filePath);
-                const resolvePath = path.join(fileBasePath, node.url);
-                if (fs.existsSync(resolvePath)) return;
+                // アンカー(#) 以降を除去する
+                const resolvePath = path.join(fileBasePath, (node.url as string).replace(/#(.*)/g, ''));
+                if (fs.existsSync(resolvePath) !== false) return;
 
                 const text = getSource(node); // Get text
                 const isIgnored = allows.some(allow => text.includes(allow));
@@ -38,10 +39,12 @@ const report: TextlintRuleModule<Options> = (context: TextlintRuleContext, optio
 
                 const ruleError = new RuleError(`相対パスのファイルが存在しませんでした Link: ${text}`);
                 return report(node, ruleError);
+            }
 
             // Root Path 指定の場合
-            } else if (node.url.match(/^\/(.*)/g)) {
-                const resolvePath = path.join(currentPath, node.url);
+            if (node.url.match(/^\/(.*)/g)) {
+                // アンカー(#) 以降を除去する
+                const resolvePath = path.join(currentPath, (node.url as string).replace(/#.*/g, ''));
                 // ファイルが存在した場合
                 if (fs.existsSync(resolvePath)) return;
 
