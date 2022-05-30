@@ -30,7 +30,7 @@ const report: TextlintRuleModule<Options> = (context: TextlintRuleContext, optio
             if (node.url.match(/^\.\//g)) {
                 const fileBasePath = path.dirname(filePath);
                 // アンカー(#) 以降を除去する
-                const resolvePath = path.join(fileBasePath, (node.url as string).replace(/#(.*)/, ''));
+                const resolvePath = path.join(fileBasePath, (node.url as string).replace(/#(.*)/g, ''));
                 if (fs.existsSync(resolvePath) !== false) return;
 
                 const text = getSource(node); // Get text
@@ -44,7 +44,7 @@ const report: TextlintRuleModule<Options> = (context: TextlintRuleContext, optio
             // Root Path 指定の場合
             if (node.url.match(/^\/(.*)/g)) {
                 // アンカー(#) 以降を除去する
-                const resolvePath = path.join(currentPath, (node.url as string).replace(/#.*/, ''));
+                const resolvePath = path.join(currentPath, (node.url as string).replace(/#.*/g, ''));
                 // ファイルが存在した場合
                 if (fs.existsSync(resolvePath)) return;
 
